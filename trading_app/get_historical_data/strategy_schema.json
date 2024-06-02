@@ -1,0 +1,85 @@
+{
+  "title": "Trading Strategy Parameters",
+  "type": "object",
+  "properties": {
+    "market": { "type": "string" },
+    "exchange": { "type": "string" },
+    "assets": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "instrument": { "type": "string" },
+    "date_range": {
+      "type": "object",
+      "properties": {
+        "start": { "type": "string", "format": "date" },
+        "end": { "type": "string", "format": "date" }
+      },
+      "required": ["start", "end"]
+    },
+    "balance": {
+      "type": "object",
+      "properties": {
+        "min": { "type": "number" },
+        "max": { "type": "number" }
+      },
+      "required": ["min", "max"]
+    },
+    "investment": {
+      "type": "object",
+      "properties": {
+        "min": { "type": "number" },
+        "max": { "type": "number" }
+      },
+      "required": ["min", "max"]
+    },
+    "leverage": {
+      "type": "object",
+      "properties": {
+        "min": { "type": "number" },
+        "max": { "type": "number" }
+      },
+      "required": ["min", "max"]
+    },
+    "timeframe": {
+      "type": "string",
+      "enum": ["1s", "1min", "1day", "1year"]
+    },
+    "opening_parameters": {
+      "type": "object",
+      "properties": {
+        "long_period": { "type": "integer" },
+        "short_period": { "type": "integer" },
+        "long_price_diff": { "type": "number" },
+        "short_price_diff": { "type": "number" },
+        "order_price_increase_limit": { "type": "number" },
+        "order_execution_time_limit": { "type": "integer" }
+      },
+      "required": ["long_period", "short_period", "long_price_diff", "short_price_diff"]
+    },
+    "closing_parameters": {
+      "type": "object",
+      "properties": {
+        "long": {
+          "type": "object",
+          "properties": {
+            "takeprofit": { "type": "number" },
+            "stoploss": { "type": "number" },
+            "trailingstoploss": { "type": "number" },
+            "delay_next_order": { "type": "integer" }
+          }
+        },
+        "short": {
+          "type": "object",
+          "properties": {
+            "takeprofit": { "type": "number" },
+            "stoploss": { "type": "number" },
+            "trailingstoploss": { "type": "number" },
+            "hold_next_order": { "type": "integer" }
+          }
+        }
+      }
+    }
+  },
+  "required": ["market", "exchange", "assets", "instrument", "date_range", "balance", "investment", "leverage", "timeframe", "opening_parameters", "closing_parameters"]
+}

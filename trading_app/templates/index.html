@@ -1,0 +1,15 @@
+<!-- trading_app/templates/trading_app/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trading Data</title>
+</head>
+<body>
+    <h1>Historical Data</h1>
+    <ul>
+        {% for item in data %}
+        <li>{{ item.asset }} - {{ item.timestamp }} - {{ item.close }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
