@@ -4,7 +4,10 @@
     "assets": [
         "BTC",
         "ETH",
-        "SOL"
+        "SOL",
+        "DOGE",
+        "XRP",
+        "MATIC"
     ],
     "instrument": "Futures",
     "date_range": {
